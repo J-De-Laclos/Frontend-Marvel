@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header>
       <Link to="/">
-        <img src="../public/logo-comic.png" alt="Logo Marvel " />
+        <img src="public/vite.svg" alt="Logo Marvel univers" />
       </Link>
       <nav>
         <Link to="/characters" className="header-link">
