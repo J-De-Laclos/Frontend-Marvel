@@ -1,7 +1,7 @@
 const Home = () => {
   return (
     <section className="home">
-      <img src="../src/assets/home_page_fullheroes.jpg" alt="img" />
+      <img src="../assets/images/home-page.jpg" />
     </section>
   );
 };
