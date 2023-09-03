@@ -29,15 +29,15 @@ header {
 }
 
 header img {
-  width: 200px;
+  width: 150px;
 }
 
 header img:hover {
-  width: 210px;
+  transform: scale(1.2);
 }
 
 header nav {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 80%;
   display: flex;
   justify-content: space-around;
@@ -49,7 +49,7 @@ header nav {
 
 header span {
   padding: 5px 10px;
-  background-color: #e5242a;
+  background-color: #fa0a12;
   color: whitesmoke;
   font-family: "Marvel", sans-serif;
   text-transform: uppercase;
@@ -57,9 +57,10 @@ header span {
 }
 
 header span:hover {
-  padding: 7px 12px;
-  font-size: 22px;
-  border: 3px solid whitesmoke;
+  transform: scale(1.2);
+  /* padding: 7px 12px;
+  font-size: 22px; */
+  border: 3px solid rgb(247, 255, 3);
 }
 
 /*--------------------------*/
