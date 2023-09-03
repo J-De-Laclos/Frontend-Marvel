@@ -4,7 +4,10 @@ const Header = () => {
   return (
     <header>
       <Link to="/">
-        <img src="../assets/images/logo-comic.png" alt="Logo Marvel" />
+        <img
+          src="src/assets/images/logo-comic.png"
+          alt="Logo Marvel Universe"
+        />
       </Link>
       <nav>
         <Link to="/characters" className="header-link">
