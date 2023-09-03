@@ -109,6 +109,12 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
                   }
                   alt="cover"
                 />
+
+                {comic.description ? (
+                  <p>{comic.description}</p>
+                ) : (
+                  <p>S.H.I.E.L.D Classification</p>
+                )}
                 {favoriteComic.includes(comic._id) ? (
                   <FontAwesomeIcon
                     icon="heart-circle-check"
@@ -135,11 +141,6 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
                       );
                     }}
                   />
-                )}
-                {comic.description ? (
-                  <p>{comic.description}</p>
-                ) : (
-                  <p>S.H.I.E.L.D Classification</p>
                 )}
               </article>
             );

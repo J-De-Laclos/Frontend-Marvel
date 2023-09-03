@@ -48,8 +48,38 @@ const Character = ({
           }
           alt="image"
         />
+
         <div>
-          <h2>{data.name}</h2>
+          <h2>{data.name}</h2>{" "}
+          <span className="favorite-character">
+            {favoriteCharacter.includes(data._id) ? (
+              <FontAwesomeIcon
+                icon="heart-circle-check"
+                className="check-icon"
+                onClick={() => {
+                  handleFavorite(
+                    favoriteCharacter,
+                    setFavoriteCharacter,
+                    data,
+                    "favCharIds"
+                  );
+                }}
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon="heart-circle-xmark"
+                className="x-icon"
+                onClick={() => {
+                  handleFavorite(
+                    favoriteCharacter,
+                    setFavoriteCharacter,
+                    data,
+                    "favCharIds"
+                  );
+                }}
+              />
+            )}
+          </span>
           {data.description ? (
             <p>{data.description}</p>
           ) : (
@@ -57,35 +87,6 @@ const Character = ({
               WARNING - The information regarding this individual has been
               classified as secret by S.H.I.E.L.D
             </p>
-          )}
-        </div>
-        <div className="favorite-character">
-          {favoriteCharacter.includes(data._id) ? (
-            <FontAwesomeIcon
-              icon="heart-circle-check"
-              className="check-icon"
-              onClick={() => {
-                handleFavorite(
-                  favoriteCharacter,
-                  setFavoriteCharacter,
-                  data,
-                  "favCharIds"
-                );
-              }}
-            />
-          ) : (
-            <FontAwesomeIcon
-              icon="heart-circle-xmark"
-              className="x-icon"
-              onClick={() => {
-                handleFavorite(
-                  favoriteCharacter,
-                  setFavoriteCharacter,
-                  data,
-                  "favCharIds"
-                );
-              }}
-            />
           )}
         </div>
       </section>

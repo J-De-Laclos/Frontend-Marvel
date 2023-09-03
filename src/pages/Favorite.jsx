@@ -31,55 +31,58 @@ const Favorite = ({
   return (
     <div className="favorite-section">
       {favCharacters.length > 0 ? (
-        <div className="favorite-characters">
+        <div>
           <h1>My Favorites Heroes and Vilains from Marvel Universe</h1>
+
           {favCharacters.map((character) => {
             return (
-              <div key={character._id}>
-                <h2>{character.name}</h2>
-                <FontAwesomeIcon
-                  icon="heart-circle-check"
-                  className="check-icon"
-                  onClick={() => {
-                    handleFavorite(
-                      favoriteCharacter,
-                      setFavoriteCharacter,
-                      character,
-                      "favCharIds"
-                    );
-                  }}
-                />
-                <img
-                  src={
-                    character.thumbnail.path +
-                    "/portrait_fantastic." +
-                    character.thumbnail.extension
-                  }
-                  alt="character"
-                />
-                {character.description ? (
-                  <p>{character.description}</p>
-                ) : (
-                  <p>S.H.I.E.L.D. Classification</p>
-                )}
-              </div>
+              <section className="section-fav-char">
+                <div className="favorite-characters" key={character._id}>
+                  <h2>{character.name}</h2>
+                  <FontAwesomeIcon
+                    icon="heart-circle-check"
+                    className="check-icon"
+                    onClick={() => {
+                      handleFavorite(
+                        favoriteCharacter,
+                        setFavoriteCharacter,
+                        character,
+                        "favCharIds"
+                      );
+                    }}
+                  />
+                  <img
+                    src={
+                      character.thumbnail.path +
+                      "/portrait_fantastic." +
+                      character.thumbnail.extension
+                    }
+                    alt="character"
+                  />
+                  {character.description ? (
+                    <p>{character.description}</p>
+                  ) : (
+                    <p>S.H.I.E.L.D. Classification</p>
+                  )}
+                </div>
+              </section>
             );
           })}
         </div>
       ) : (
         <>
           <h1>My Favorites Heroes and Vilains from Marvel Universe</h1>
-          <p>No Heroes or Vilains in this section</p>
+          <p className="zero-favorite">No Heroes or Vilains in this section</p>
         </>
       )}
 
       {favComics.length > 0 ? (
-        <div className="favorite-comics">
+        <div>
           <h1>My Favorites Comics from Marvel Universe</h1>
           {favComics.map((comic) => {
             return (
-              <div key={comic._id}>
-                <h2>{comic.name}</h2>
+              <div className="favorite-comics" key={comic._id}>
+                <h2>{comic.title}</h2>
                 <FontAwesomeIcon
                   icon="heart-circle-check"
                   className="check-icon"
@@ -112,7 +115,7 @@ const Favorite = ({
       ) : (
         <>
           <h1>My Favorites Heroes and Vilains</h1>
-          <p>No Comics in this section</p>
+          <p className="zero-favorite">No Comics in this section</p>
         </>
       )}
     </div>
