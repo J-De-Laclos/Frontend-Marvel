@@ -1,9 +1,15 @@
+import fullhero from "../assets/images/fullhero03.jpg";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="home">
       <img
-        src="https://boundingintocomics.com/wp-content/uploads/2021/09/2021.09.24-11.13-boundingintocomics-614e5b853d667-e1632525402371.jpg"
-        alt="full heroe"
+        src={fullhero}
+        alt="profil des héros marvel"
+        onClick={() => navigate("/characters")}
       />
     </section>
   );
