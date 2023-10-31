@@ -17,6 +17,7 @@ import Favorite from "./pages/Favorite";
 
 //Components
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   // state pour stocker respectivement les personnages et les comics favoris
@@ -101,6 +102,7 @@ function App() {
           }
         />
       </Routes>
+      <Footer />
     </Router>
   );
 }
