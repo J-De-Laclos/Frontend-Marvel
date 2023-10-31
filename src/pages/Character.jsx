@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import AliceCarousel from "react-alice-carousel";
+import "react-alice-carousel/lib/alice-carousel.css";
 
 const Character = ({
   handleFavorite,
@@ -91,6 +93,7 @@ const Character = ({
         </div>
       </section>
       <h2 className="find">Find me in : </h2>
+
       <section className="comics-from-character">
         {cover.comics.map((comic) => {
           return (
