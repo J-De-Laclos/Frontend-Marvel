@@ -13,6 +13,7 @@ import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import Character from "./pages/Character";
 import Comics from "./pages/Comics";
+import Comic from "./pages/Comic";
 import Favorite from "./pages/Favorite";
 
 //Components
@@ -83,6 +84,16 @@ function App() {
           path="/comics"
           element={
             <Comics
+              favoriteComic={favoriteComic}
+              setFavoriteComic={setFavoriteComic}
+              handleFavorite={handleFavorite}
+            />
+          }
+        />
+        <Route
+          path="/comic/:comicId"
+          element={
+            <Comic
               favoriteComic={favoriteComic}
               setFavoriteComic={setFavoriteComic}
               handleFavorite={handleFavorite}

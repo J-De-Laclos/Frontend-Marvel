@@ -52,7 +52,7 @@ const Character = ({
         />
 
         <div>
-          <h2>{data.name}</h2>{" "}
+          <h2>{data.name}</h2>
           <span className="favorite-character">
             {favoriteCharacter.includes(data._id) ? (
               <FontAwesomeIcon

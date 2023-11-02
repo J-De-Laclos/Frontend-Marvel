@@ -181,6 +181,51 @@ header span:hover {
 }
 
 /*--------------------------*/
+/*--------COMIC---------------*/
+/*--------------------------*/
+
+.comic-section {
+  /* border: 1px solid green; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comic-section h2 {
+  color: #e5242a;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  padding: 3%;
+}
+
+.comic-section img {
+  width: 40%;
+  margin-bottom: 2%;
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+}
+
+.comic-section p {
+  color: whitesmoke;
+  font-family: "Marvel", sans-serif;
+  font-size: 30px;
+  text-align: justify;
+  line-height: 35px;
+  margin-bottom: 15px;
+  padding: 0 2%;
+}
+
+.comic-section .x-icon {
+  font-size: 30px;
+}
+
+.comic-section .check-icon {
+  font-size: 30px;
+}
+
+/*--------------------------*/
 /*--------CHARACTERS----------*/
 /*--------------------------*/
 

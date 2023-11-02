@@ -21,11 +21,38 @@ const Favorite = ({
   }
   //   console.log(favCharactersArray);
   //   console.log(favCharacters);
-  const favComicsArray = JSON.parse(localStorage.getItem("favComIds") || "0");
-  for (let j = 0; j < favComicsArray.length; j++) {
-    let y = favComicsArray[j];
-    favComics[j] = JSON.parse(localStorage.getItem([y]) || "");
+  // const favComicsArray = JSON.parse(localStorage.getItem("favComIds") || "0");
+  // for (let j = 0; j < favComicsArray.length; j++) {
+  //   let y = favComicsArray[j];
+  //   favComics[j] = JSON.parse(localStorage.getItem([y]) || "");
+  // }
+  const favComicsArray = JSON.parse(localStorage.getItem("favComIds") || "[]");
+
+  // Assure-toi que favComicsArray est un tableau
+  if (Array.isArray(favComicsArray)) {
+    for (let j = 0; j < favComicsArray.length; j++) {
+      let y = favComicsArray[j];
+
+      // Assure-toi que y est une clé valide
+      if (y) {
+        // Récupère les données du localStorage seulement si la clé est présente
+        let storedData = localStorage.getItem(y);
+
+        // Assure-toi que les données sont présentes et valides
+        if (storedData) {
+          favComics[j] = JSON.parse(storedData);
+        } else {
+          console.warn(`No data found for key ${y}`);
+        }
+      } else {
+        console.warn(`Invalid key at index ${j}`);
+      }
+    }
+  } else {
+    console.error("Invalid data in favComIds");
   }
+
+  // console.log(localStorage.getItem("favComIds"));
   //   console.log(favComics);
 
   return (

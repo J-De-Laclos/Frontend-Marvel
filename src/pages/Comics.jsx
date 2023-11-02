@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   const [data, setData] = useState({});
@@ -11,6 +12,8 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
 
   const [searchComic, setSearchComic] = useState("");
   const [pageComic, setPageComic] = useState(1);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -108,12 +111,13 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
                     comic.thumbnail.extension
                   }
                   alt="cover"
+                  onClick={() => navigate(`/comic/${comic._id}`)}
                 />
 
                 {comic.description ? (
                   <p>{comic.description}</p>
                 ) : (
-                  <p>S.H.I.E.L.D Classification</p>
+                  <p>WARNING - S.H.I.E.L.D Classification</p>
                 )}
                 {favoriteComic.includes(comic._id) ? (
                   <FontAwesomeIcon
