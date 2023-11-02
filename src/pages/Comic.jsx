@@ -30,7 +30,7 @@ const Comic = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
     <p>Loading...</p>
   ) : (
     <>
-      <section className="comic-section" style={{ color: "white" }}>
+      <section className="comic-section" key={comicId}>
         <h2>{data.title}</h2>
         <img
           src={

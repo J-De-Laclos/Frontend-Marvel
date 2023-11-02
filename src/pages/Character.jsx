@@ -2,8 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AliceCarousel from "react-alice-carousel";
-import "react-alice-carousel/lib/alice-carousel.css";
+import { useNavigate } from "react-router-dom";
 
 const Character = ({
   handleFavorite,
@@ -11,7 +10,7 @@ const Character = ({
   setFavoriteCharacter,
 }) => {
   const params = useParams();
-
+  const navigate = useNavigate();
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [cover, setCover] = useState();
@@ -105,6 +104,7 @@ const Character = ({
                 comic.thumbnail.extension
               }
               alt="cover"
+              onClick={() => navigate(`/comic/${comic._id}`)}
             />
           );
         })}

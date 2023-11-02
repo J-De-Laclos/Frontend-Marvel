@@ -178,8 +178,13 @@ header span:hover {
   border: 5px solid transparent;
   border-image: linear-gradient(45deg, #fad325, whitesmoke);
   border-image-slice: 1;
+  transition: transform 0.3s;
 }
 
+.comics-section img:hover {
+  box-shadow: 0 0px 60px #fad325;
+  transform: scale(1.1);
+}
 /*--------------------------*/
 /*--------COMIC---------------*/
 /*--------------------------*/
@@ -337,13 +342,11 @@ header span:hover {
 }
 
 .comics-from-character {
-  /* border: 2px solid green; */
   margin: 0 30px;
   margin-bottom: 30px;
   margin-top: 25px;
   display: flex;
   gap: 12px;
-
   overflow: scroll hidden;
   justify-content: flex-start;
 }
@@ -352,6 +355,12 @@ header span:hover {
   object-fit: cover;
   border: 5px solid transparent;
   border-image: linear-gradient(45deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+}
+
+.comics-from-character img:hover {
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #e5242a, black);
   border-image-slice: 1;
 }
 
@@ -396,15 +405,27 @@ header span:hover {
   border-radius: 10px;
   box-shadow: #fad325 0 0 40px;
   object-fit: cover;
+  margin-bottom: 4%;
+  transition: transform 0.3;
+}
+
+.favorite-characters img:hover {
+  box-shadow: 0 0px 60px #fad325;
+  transform: scale(1.1);
 }
 
 .section-fav-char {
-  /* border: 2px solid green; */
   width: 17%;
   display: inline-block;
   margin-right: 15px;
   margin-top: 20px;
-  /* text-align: center; */
+}
+
+.block-fav-characters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .favorite-characters p {
@@ -429,19 +450,30 @@ header span:hover {
 }
 
 .favorite-comics {
-  /* border: 2px solid red; */
   width: 18%;
   display: inline-block;
   margin-right: 15px;
   margin-top: 20px;
 }
 
+.block-fav-comics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .favorite-comics img {
   width: 100%;
-  margin-bottom: 5px;
+  margin-bottom: 4%;
   border: 5px solid transparent;
   border-image: linear-gradient(45deg, #fad325, whitesmoke);
   border-image-slice: 1;
+  transition: transform 0.3;
+}
+
+.favorite-comics img:hover {
+  box-shadow: 0 0px 60px #fad325;
+  transform: scale(1.1);
 }
 
 .favorite-comics h2 {

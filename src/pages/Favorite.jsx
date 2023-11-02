@@ -1,4 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
 
 const Favorite = ({
   favoriteComic,
@@ -7,6 +8,8 @@ const Favorite = ({
   favoriteCharacter,
   setFavoriteCharacter,
 }) => {
+  const navigate = useNavigate();
+
   //recup les données stock dans le localstorage
   //stockage des favori dans des tableaux
   let favCharacters = [];
@@ -19,13 +22,7 @@ const Favorite = ({
     let x = favCharactersArray[i];
     favCharacters[i] = JSON.parse(localStorage.getItem([x]) || "");
   }
-  //   console.log(favCharactersArray);
-  //   console.log(favCharacters);
-  // const favComicsArray = JSON.parse(localStorage.getItem("favComIds") || "0");
-  // for (let j = 0; j < favComicsArray.length; j++) {
-  //   let y = favComicsArray[j];
-  //   favComics[j] = JSON.parse(localStorage.getItem([y]) || "");
-  // }
+
   const favComicsArray = JSON.parse(localStorage.getItem("favComIds") || "[]");
 
   // Assure-toi que favComicsArray est un tableau
@@ -65,32 +62,42 @@ const Favorite = ({
             return (
               <section className="section-fav-char">
                 <div className="favorite-characters" key={character._id}>
-                  <h2>{character.name}</h2>
-                  <FontAwesomeIcon
-                    icon="heart-circle-check"
-                    className="check-icon"
-                    onClick={() => {
-                      handleFavorite(
-                        favoriteCharacter,
-                        setFavoriteCharacter,
-                        character,
-                        "favCharIds"
-                      );
-                    }}
-                  />
-                  <img
-                    src={
-                      character.thumbnail.path +
-                      "/portrait_fantastic." +
-                      character.thumbnail.extension
-                    }
-                    alt="character"
-                  />
-                  {character.description ? (
-                    <p>{character.description}</p>
-                  ) : (
-                    <p>S.H.I.E.L.D. Classification</p>
-                  )}
+                  <div className="block-fav-characters">
+                    <h2>{character.name}</h2>
+                    <div>
+                      <FontAwesomeIcon
+                        icon="heart-circle-check"
+                        className="check-icon"
+                        onClick={() => {
+                          handleFavorite(
+                            favoriteCharacter,
+                            setFavoriteCharacter,
+                            character,
+                            "favCharIds"
+                          );
+                        }}
+                      />
+                    </div>
+
+                    <img
+                      src={
+                        character.thumbnail.path +
+                        "/portrait_fantastic." +
+                        character.thumbnail.extension
+                      }
+                      alt="character"
+                      key={character._id}
+                      onClick={() => navigate(`/character/${character._id}`)}
+                    />
+                  </div>
+
+                  <div>
+                    {character.description ? (
+                      <p>{character.description}</p>
+                    ) : (
+                      <p>S.H.I.E.L.D. Classification</p>
+                    )}
+                  </div>
                 </div>
               </section>
             );
@@ -109,32 +116,39 @@ const Favorite = ({
           {favComics.map((comic) => {
             return (
               <div className="favorite-comics" key={comic._id}>
-                <h2>{comic.title}</h2>
-                <FontAwesomeIcon
-                  icon="heart-circle-check"
-                  className="check-icon"
-                  onClick={() => {
-                    handleFavorite(
-                      favoriteComic,
-                      setFavoriteComic,
-                      comic,
-                      "favComIds"
-                    );
-                  }}
-                />
-                <img
-                  src={
-                    comic.thumbnail.path +
-                    "/portrait_fantastic." +
-                    comic.thumbnail.extension
-                  }
-                  alt="comic"
-                />
-                {comic.description ? (
-                  <p>{comic.description}</p>
-                ) : (
-                  <p>S.H.I.E.L.D. Classification</p>
-                )}
+                <div className="block-fav-comics">
+                  <h2>{comic.title}</h2>
+                  <FontAwesomeIcon
+                    icon="heart-circle-check"
+                    className="check-icon"
+                    onClick={() => {
+                      handleFavorite(
+                        favoriteComic,
+                        setFavoriteComic,
+                        comic,
+                        "favComIds"
+                      );
+                    }}
+                  />
+                  <img
+                    src={
+                      comic.thumbnail.path +
+                      "/portrait_fantastic." +
+                      comic.thumbnail.extension
+                    }
+                    alt="comic"
+                    key={comic._id}
+                    onClick={() => navigate(`/comic/${comic._id}`)}
+                  />
+                </div>
+
+                <div>
+                  {comic.description ? (
+                    <p>{comic.description}</p>
+                  ) : (
+                    <p>S.H.I.E.L.D. Classification</p>
+                  )}
+                </div>
               </div>
             );
           })}
