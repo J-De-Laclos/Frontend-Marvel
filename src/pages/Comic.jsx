@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Loader03 from "../components/Loader03";
 
 const Comic = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   const { comicId } = useParams();
@@ -27,7 +28,7 @@ const Comic = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   }, [comicId]);
 
   return isLoading ? (
-    <p>Loading...</p>
+    <Loader03 />
   ) : (
     <>
       <section className="comic-section" key={comicId}>

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loader from "../components/Loader";
 
 const Characters = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Characters = () => {
     fetchData();
   }, [searchCharacter, pageCharacter, nbItems]);
   return isLoading ? (
-    <p>Loading...</p>
+    <Loader />
   ) : (
     <>
       {/* Faire ma recherche de Characters */}

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import Loader02 from "../components/Loader02";
 
 const Character = ({
   handleFavorite,
@@ -37,7 +38,7 @@ const Character = ({
     fetchData();
   }, [params.id]);
   return isLoading ? (
-    <p>Loading...</p>
+    <Loader02 />
   ) : (
     <>
       <section className="character-section">

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import Loader04 from "../components/Loader04";
 
 const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   const [data, setData] = useState({});
@@ -34,7 +35,7 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   }, [searchComic, pageComic, nbItems]);
 
   return isLoading ? (
-    <p>Loading...</p>
+    <Loader04 />
   ) : (
     <>
       {/* Faire ma recherche de Comics */}
