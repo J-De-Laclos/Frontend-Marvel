@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import Loader02 from "../components/Loader02";
+import "../assets/style/Character.css";
 
 const Character = ({
   handleFavorite,
@@ -22,15 +23,17 @@ const Character = ({
         const response = await axios.get(
           `https://site--backend-marvel--f5vs5q45f4mj.code.run/characterId/${params.id}`
         );
-        // console.log(response.data);
-        setData(response.data);
-
         const responseCover = await axios.get(
           `https://site--backend-marvel--f5vs5q45f4mj.code.run/comics/character/${params.id}`
         );
-        setCover(responseCover.data);
+        // console.log(response.data);
+        setTimeout(() => {
+          setData(response.data);
 
-        setIsLoading(false);
+          setCover(responseCover.data);
+
+          setIsLoading(false);
+        }, 2000);
       } catch (error) {
         console.log(error.message);
       }

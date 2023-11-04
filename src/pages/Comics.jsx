@@ -3,6 +3,7 @@ import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
 import Loader04 from "../components/Loader04";
+import "../assets/style/Comics.css";
 
 const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   const [data, setData] = useState({});
@@ -25,8 +26,10 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
           }&limit=${nbItems}`
         );
         // console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setData(response.data);
+          setIsLoading(false);
+        }, 2000);
       } catch (error) {
         console.log(error.message);
       }
@@ -152,8 +155,64 @@ const Comics = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
           }
         })}
       </section>
+
+      <div className="change-pages">
+        <div
+          onClick={() => {
+            setPageComic(pageComic - 1);
+          }}
+          className={pageComic === 1 ? `disable` : `previous`}
+        >
+          Previous
+        </div>
+
+        <div
+          style={{
+            color: "whitesmoke",
+            fontFamily: "Marvel",
+            fontSize: "20px",
+          }}
+        >
+          <span>
+            Page{" "}
+            <input
+              style={{
+                color: "whitesmoke",
+                textAlign: "center",
+                fontSize: "20px",
+              }}
+              type="number"
+              min="1"
+              max={Math.ceil(data.count / data.limit)}
+              value={pageComic}
+              onChange={(e) => {
+                const value = e.target.value;
+                setPageComic(
+                  value > 0
+                    ? Math.min(value, Math.ceil(data.count / data.limit))
+                    : 1
+                );
+              }}
+            />
+            / {Math.ceil(data.count / data.limit)}
+          </span>
+        </div>
+
+        <div
+          onClick={() => {
+            setPageComic(pageComic + 1);
+          }}
+          className={
+            pageComic === Math.ceil(data.count / data.limit)
+              ? `disable`
+              : `next`
+          }
+        >
+          Next
+        </div>
+      </div>
     </>
   );
 };
-// portrait_fantastic portrait_uncanny
+
 export default Comics;

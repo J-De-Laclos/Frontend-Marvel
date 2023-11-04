@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Loader03 from "../components/Loader03";
+import "../assets/style/Comic.css";
 
 const Comic = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
   const { comicId } = useParams();
@@ -18,8 +19,10 @@ const Comic = ({ favoriteComic, setFavoriteComic, handleFavorite }) => {
           `https://site--backend-marvel--f5vs5q45f4mj.code.run/comic/${comicId}`
         );
         // console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setData(response.data);
+          setIsLoading(false);
+        }, 2000);
       } catch (error) {
         console.log(error.message);
       }

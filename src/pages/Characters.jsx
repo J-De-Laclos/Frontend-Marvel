@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loader from "../components/Loader";
+import "../assets/style/Characters.css";
 
 const Characters = () => {
   const navigate = useNavigate();
@@ -23,8 +24,10 @@ const Characters = () => {
           }&limit=${nbItems}`
         );
         // console.log(response.data);
-        setData(response.data);
-        setIsLoading(false);
+        setTimeout(() => {
+          setData(response.data);
+          setIsLoading(false);
+        }, 2000);
       } catch (error) {
         console.log(error.message);
       }
@@ -119,6 +122,62 @@ const Characters = () => {
             );
           }
         })}
+      </div>
+      <div className="change-pages">
+        <div
+          onClick={() => {
+            setPageCharacter(pageCharacter - 1);
+          }}
+          className={pageCharacter === 1 ? `disable` : `previous`}
+        >
+          Previous
+        </div>
+
+        <div
+          style={{
+            color: "whitesmoke",
+            fontFamily: "Marvel",
+            fontSize: "20px",
+          }}
+        >
+          <span>
+            Page
+            <input
+              style={{
+                color: "whitesmoke",
+                fontSize: "20px",
+                textAlign: "center",
+                fontFamily: "Marvel",
+              }}
+              type="number"
+              min="1"
+              max={Math.ceil(data.count / data.limit)}
+              value={pageCharacter}
+              onChange={(e) => {
+                const value = e.target.value;
+                setPageCharacter(
+                  value > 0
+                    ? Math.min(value, Math.ceil(data.count / data.limit))
+                    : 1
+                );
+              }}
+            />
+            / {Math.ceil(data.count / data.limit)}
+          </span>
+        </div>
+
+        <div
+          onClick={() => {
+            setPageCharacter(pageCharacter + 1);
+          }}
+          className={
+            pageCharacter === Math.ceil(data.count / data.limit)
+              ? `disable`
+              : `next`
+          }
+        >
+          Next
+        </div>
       </div>
     </>
   );

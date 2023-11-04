@@ -1,0 +1,110 @@
+/*--------------------------*/
+/*--------CHARACTER----------*/
+/*--------------------------*/
+
+.character-section {
+  /* border: 2px solid green; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+.character-section img {
+  width: 35%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-image: linear-gradient(25deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+  border-radius: 10px;
+  margin-left: 15%;
+  box-shadow: #fad325 0 0 60px;
+  margin-right: 10%;
+}
+
+.character-section div {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15%;
+}
+
+.character-section h2 {
+  color: whitesmoke;
+  box-shadow: #e5242a 0 0 10px;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-size: 50px;
+  margin-bottom: 25px;
+}
+
+.character-section p {
+  color: whitesmoke;
+  font-family: "Marvel", sans-serif;
+  font-size: 30px;
+  text-align: justify;
+  line-height: 35px;
+  margin-bottom: 15px;
+}
+
+.comics-from-character {
+  margin: 0 30px;
+  margin-bottom: 30px;
+  margin-top: 25px;
+  display: flex;
+  gap: 12px;
+  overflow: scroll hidden;
+  justify-content: flex-start;
+}
+
+.comics-from-character img {
+  object-fit: cover;
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+}
+
+.comics-from-character img:hover {
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #e5242a, black);
+  border-image-slice: 1;
+}
+
+.find {
+  color: whitesmoke;
+  font-family: "Marvel", sans-serif;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.favorite-character {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 680px) {
+  .character-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .character-section img {
+    margin-bottom: 4%;
+  }
+  .character-section div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .character-section p {
+    font-size: 22px;
+    padding: 0 15px;
+  }
+  .character-section h2 {
+    font-size: 40px;
+    margin-left: 20px;
+  }
+}

@@ -1,0 +1,134 @@
+/*--------------------------*/
+/*--------FAVORITE----------*/
+/*--------------------------*/
+
+.favorite-section {
+  color: whitesmoke;
+}
+
+.favorite-section h1 {
+  color: #e5242a;
+  box-shadow: 0 0 10px yellow;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 5px;
+  overflow: hidden;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.favorite-characters img {
+  width: 80%;
+  object-fit: cover;
+  border: 2px solid transparent;
+  border-image: linear-gradient(25deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+  border-radius: 10px;
+  box-shadow: #fad325 0 0 40px;
+  object-fit: cover;
+  margin-bottom: 4%;
+  transition: transform 0.3;
+}
+
+.favorite-characters img:hover {
+  box-shadow: 0 0px 60px #fad325;
+  transform: scale(1.1);
+}
+
+.section-fav-char {
+  width: 17%;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.block-fav-characters {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-characters p {
+  color: whitesmoke;
+  height: 20px;
+  text-align: justify;
+  font-family: "Marvel", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.favorite-characters h2 {
+  color: #fad325;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 7px;
+  height: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.favorite-comics {
+  width: 18%;
+  display: inline-block;
+  margin-right: 15px;
+  margin-top: 20px;
+}
+
+.block-fav-comics {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.favorite-comics img {
+  width: 100%;
+  margin-bottom: 4%;
+  border: 5px solid transparent;
+  border-image: linear-gradient(45deg, #fad325, whitesmoke);
+  border-image-slice: 1;
+  transition: transform 0.3;
+}
+
+.favorite-comics img:hover {
+  box-shadow: 0 0px 60px #fad325;
+  transform: scale(1.1);
+}
+
+.favorite-comics h2 {
+  color: #e5242a;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+  height: 20px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.favorite-comics p {
+  color: whitesmoke;
+  height: 20px;
+  text-align: justify;
+  font-family: "Marvel", sans-serif;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.favorite-section .check-icon {
+  font-size: 22px;
+}
+
+.zero-favorite {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  font-family: "Marvel", sans-serif;
+  font-weight: bold;
+  margin: 40px 0;
+}

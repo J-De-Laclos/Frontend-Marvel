@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from "react-router-dom";
+import "../assets/style/Favorite.css";
 
 const Favorite = ({
   favoriteComic,

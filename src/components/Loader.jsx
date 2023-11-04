@@ -15,7 +15,7 @@ const Loader = () => {
         style={{ width: "35%", height: "auto" }}
       />
       <p style={{ color: "whitesmoke", fontSize: "40px" }}>
-        Hakuna Matte-moi ça...
+        Hakuna matte-moi ça...
       </p>
     </div>
   );

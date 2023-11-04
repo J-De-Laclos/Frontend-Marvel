@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import logo from "../assets/images/logo-comic.png";
+import "../assets/style/Header.css";
 
 const Header = () => {
   return (
