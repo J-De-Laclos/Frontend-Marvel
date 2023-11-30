@@ -35,6 +35,7 @@ header span {
   background-color: #fa0a12;
   color: whitesmoke;
   font-family: "Marvel", sans-serif;
+  font-weight: bold;
   text-transform: uppercase;
   font-size: 20px;
 }
