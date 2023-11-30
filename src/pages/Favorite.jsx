@@ -58,51 +58,52 @@ const Favorite = ({
       {favCharacters.length > 0 ? (
         <div>
           <h1>My Favorites Heroes and Vilains from Marvel Universe</h1>
+          <div className="fav-section-comics">
+            {favCharacters.map((character) => {
+              return (
+                <section className="section-fav-char">
+                  <div className="favorite-characters" key={character._id}>
+                    <div className="block-fav-characters">
+                      <h2>{character.name}</h2>
+                      <div>
+                        <FontAwesomeIcon
+                          icon="heart-circle-check"
+                          className="check-icon"
+                          onClick={() => {
+                            handleFavorite(
+                              favoriteCharacter,
+                              setFavoriteCharacter,
+                              character,
+                              "favCharIds"
+                            );
+                          }}
+                        />
+                      </div>
 
-          {favCharacters.map((character) => {
-            return (
-              <section className="section-fav-char">
-                <div className="favorite-characters" key={character._id}>
-                  <div className="block-fav-characters">
-                    <h2>{character.name}</h2>
-                    <div>
-                      <FontAwesomeIcon
-                        icon="heart-circle-check"
-                        className="check-icon"
-                        onClick={() => {
-                          handleFavorite(
-                            favoriteCharacter,
-                            setFavoriteCharacter,
-                            character,
-                            "favCharIds"
-                          );
-                        }}
+                      <img
+                        src={
+                          character.thumbnail.path +
+                          "/portrait_fantastic." +
+                          character.thumbnail.extension
+                        }
+                        alt="character"
+                        key={character._id}
+                        onClick={() => navigate(`/character/${character._id}`)}
                       />
                     </div>
 
-                    <img
-                      src={
-                        character.thumbnail.path +
-                        "/portrait_fantastic." +
-                        character.thumbnail.extension
-                      }
-                      alt="character"
-                      key={character._id}
-                      onClick={() => navigate(`/character/${character._id}`)}
-                    />
+                    <div>
+                      {character.description ? (
+                        <p>{character.description}</p>
+                      ) : (
+                        <p>S.H.I.E.L.D. Classification</p>
+                      )}
+                    </div>
                   </div>
-
-                  <div>
-                    {character.description ? (
-                      <p>{character.description}</p>
-                    ) : (
-                      <p>S.H.I.E.L.D. Classification</p>
-                    )}
-                  </div>
-                </div>
-              </section>
-            );
-          })}
+                </section>
+              );
+            })}
+          </div>
         </div>
       ) : (
         <>
@@ -114,45 +115,47 @@ const Favorite = ({
       {favComics.length > 0 ? (
         <div>
           <h1>My Favorites Comics from Marvel Universe</h1>
-          {favComics.map((comic) => {
-            return (
-              <div className="favorite-comics" key={comic._id}>
-                <div className="block-fav-comics">
-                  <h2>{comic.title}</h2>
-                  <FontAwesomeIcon
-                    icon="heart-circle-check"
-                    className="check-icon"
-                    onClick={() => {
-                      handleFavorite(
-                        favoriteComic,
-                        setFavoriteComic,
-                        comic,
-                        "favComIds"
-                      );
-                    }}
-                  />
-                  <img
-                    src={
-                      comic.thumbnail.path +
-                      "/portrait_fantastic." +
-                      comic.thumbnail.extension
-                    }
-                    alt="comic"
-                    key={comic._id}
-                    onClick={() => navigate(`/comic/${comic._id}`)}
-                  />
-                </div>
+          <div className="fav-section-comics">
+            {favComics.map((comic) => {
+              return (
+                <div className="favorite-comics" key={comic._id}>
+                  <div className="block-fav-comics">
+                    <h2>{comic.title}</h2>
+                    <FontAwesomeIcon
+                      icon="heart-circle-check"
+                      className="check-icon"
+                      onClick={() => {
+                        handleFavorite(
+                          favoriteComic,
+                          setFavoriteComic,
+                          comic,
+                          "favComIds"
+                        );
+                      }}
+                    />
+                    <img
+                      src={
+                        comic.thumbnail.path +
+                        "/portrait_fantastic." +
+                        comic.thumbnail.extension
+                      }
+                      alt="comic"
+                      key={comic._id}
+                      onClick={() => navigate(`/comic/${comic._id}`)}
+                    />
+                  </div>
 
-                <div>
-                  {comic.description ? (
-                    <p>{comic.description}</p>
-                  ) : (
-                    <p>S.H.I.E.L.D. Classification</p>
-                  )}
+                  <div>
+                    {comic.description ? (
+                      <p>{comic.description}</p>
+                    ) : (
+                      <p>S.H.I.E.L.D. Classification</p>
+                    )}
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       ) : (
         <>
